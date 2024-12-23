@@ -6,7 +6,7 @@ const char* ssid = "Tien Duong";
 const char* password = "tumotden9";
 
 // Server URL
-const char* serverURL = "https://wsnweb.pythonanywhere.com/espdata/api/receive-data/";
+const char* serverURL = "https://wsnnhom30.pythonanywhere.com/espdata/api/receive-data/";
 
 void setup() {
   Serial.begin(9600);
