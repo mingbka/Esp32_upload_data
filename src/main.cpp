@@ -6,7 +6,7 @@ const char* ssid = "Tien Duong";
 const char* password = "tumotden9";
 
 // Server URL
-const char* serverURL = "https://mingbka.pythonanywhere.com/espdata/api/receive-data/";
+const char* serverURL = "https://wsnweb.pythonanywhere.com/espdata/api/receive-data/";
 
 void setup() {
   Serial.begin(9600);
@@ -27,8 +27,9 @@ void loop() {
 
     float temperature = random(200, 300) / 10.0;  
     float humidity = random(500, 800) / 10.0; 
+    int node = random(1,3);
 
-    String jsonData = "{\"temperature\": " + String(temperature, 1) + ", \"humidity\": " + String(humidity, 1) + "}";
+    String jsonData = "{\"node\": " + String(node) + ", \"temperature\": " + String(temperature, 1) + ", \"humidity\": " + String(humidity, 1) + "}";
     Serial.println("Sending data: " + jsonData); 
     // Gửi dữ liệu
     int httpResponseCode = http.POST(jsonData);
@@ -47,6 +48,6 @@ void loop() {
     }
     http.end();
   }
-  delay(10000);  // Gửi mỗi 10 giây
+  delay(60000);  // Gửi mỗi 60 giây
 }
 
